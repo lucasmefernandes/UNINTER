@@ -1,0 +1,41 @@
+<header class="bg-dark-purple sticky-top py-2 shadow">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a href="/home" class="d-flex align-items-center">
+      <img src="/assets/img/logo.png" alt="Logo da instituição" style="width: 275px;">
+    </a>
+    <nav>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link text-white paragraph" routerLink="/institutions" routerLinkActive="active">INSTITUIÇÕES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white paragraph" routerLink="/cart" routerLinkActive="active">CARRINHO</a>
+        </li>
+
+        @if(isAuth) {
+        <li class="nav-item">
+          <a class="nav-link text-white paragraph" routerLink="/add-product" routerLinkActive="active">ADICIONAR
+            PRODUTO</a>
+        </li>
+        }
+
+        @if(isAuth) {
+        <li class="nav-item">
+          <a class="nav-link text-white paragraph last-but-one cursorpointer" (click)="logout()">SAIR</a>
+        </li>
+        } @else {
+
+        <li class="nav-item">
+          <a class="nav-link text-white paragraph last-but-one" routerLink="/login" routerLinkActive="active">ENTRAR</a>
+        </li>
+        }
+
+        <li class="nav-item">
+          <a class="nav-link text-white paragraph" routerLink="/register" routerLinkActive="active">CADASTRO</a>
+        </li>
+
+
+      </ul>
+    </nav>
+  </div>
+</header>

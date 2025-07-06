@@ -1,0 +1,19 @@
+
+<section class="container py-4 dvh-100">
+  <h2 class="text-white">Produtos Cadastrados</h2>
+  @if (loading()) {
+  <div>Carregando...</div>
+  }
+
+  @if (!loading() && products().length === 0) {
+  <div>Nenhum produto encontrado.</div>
+  }
+
+  <ul class="list-group">
+    @for (p of products(); track $index) {
+    <li class="list-group-item my-1 rounded">
+      <img width="75px" src="{{ p.imageUrl }}" alt="{{ p.name }}" class="me-3">{{ p.name }} - R$ {{ p.price }}
+    </li>
+    }
+  </ul>
+</section>

@@ -1,0 +1,44 @@
+<!-- admin-crm.html -->
+<app-header></app-header>
+<section class="container py-4 dvh-100">
+  <h2 class="text-white">Gestão de Produtos</h2>
+
+  <div class="py-4">
+    <button class="btn btn-success me-1" (click)="setTab('add')">Criar Produto</button>
+    <button class="btn btn-success mx-1" (click)="setTab('list')">Ver Produtos</button>
+    <button class="btn btn-success ms-1" (click)="setTab('sales')">Ver Vendas</button>
+  </div>
+
+
+  @if (tab() === 'add') {
+  <form (ngSubmit)="submit()">
+    <div class="mb-3">
+      <label class="text-white">Nome do Produto</label>
+      <input type="text" class="form-control" [(ngModel)]="name" name="name" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="text-white">Preço</label>
+      <input type="number" class="form-control" [(ngModel)]="price" name="price" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="text-white">Imagem (URL)</label>
+      <input type="text" class="form-control" [(ngModel)]="imageUrl" name="imageUrl" />
+    </div>
+
+    <button class="btn btn-success">Salvar Produto</button>
+    <p class="mt-3 text-success">{{ message() }}</p>
+  </form>
+  }
+
+  @if (tab() === 'list') {
+  <app-product-list></app-product-list>
+  }
+
+  @if (tab() === 'sales') {
+  <app-sales-report></app-sales-report>
+  }
+</section>
+
+<app-footer></app-footer>

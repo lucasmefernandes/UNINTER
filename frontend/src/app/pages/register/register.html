@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="bg-dark-purple w-100 dvh-100">
+  <div class="container pt-5" style="max-width: 500px;">
+    <h2 class="text-center mb-4 text-white">Cadastro</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="mb-3">
+        <label for="name" class="form-label text-white">Nome</label>
+        <input formControlName="name" type="text" id="name" class="form-control" autocomplete="name" />
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label text-white">E-mail</label>
+        <input formControlName="email" type="email" id="email" class="form-control" autocomplete="email" />
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label text-white">Senha</label>
+        <input formControlName="password" type="password" id="password" class="form-control"
+          autocomplete="current-password" />
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label text-white">Descrição</label>
+        <textarea formControlName="description" id="description" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="imageUrl" class="form-label text-white">Imagem (URL ou Upload)</label>
+        <input formControlName="imageUrl" type="text" id="imageUrl" class="form-control mb-2"
+          placeholder="https://..." />
+      </div>
+
+      @if (auth.error()) {
+      <div class="alert alert-danger">
+        {{ auth.error() }}
+      </div>
+      }
+      <div class="d-flex">
+        <button class="btn btn-success w-100 me-1" [disabled]="form.invalid || auth.loading()">
+          {{ auth.loading() ? 'Registrando...' : 'Registrar' }}
+        </button>
+        <button class="btn btn-success w-100 ms-1" routerLink="/home" routerLinkActive="active">
+          Voltar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,19 @@
+
+<section class="container py-4 dvh-100">
+<h2 class="text-white">Resumo de Vendas</h2>
+  @if (loading()) {
+  <div>Carregando...</div>
+  }
+
+  @if (!loading() && sales().length === 0) {
+  <div>Nenhuma venda registrada.</div>
+  }
+
+  <ul class="list-group">
+    @for (s of sales(); track $index) {
+    <li class="list-group-item my-1 rounded">
+    Produto: {{ s.productName }} | Vendido: {{ s.quantity }}
+    </li>
+    }
+  </ul>
+</section>

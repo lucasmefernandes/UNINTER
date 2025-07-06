@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+@if (cart().length > 0) {
+  <section class="container pt-5 dvh-100">
+    <h2 class="mb-5 text-center text-white">Seu Carrinho</h2>
+
+    @for (item of cart(); track $index) {
+      <div class="mb-4 p-3 rounded bg-light-purple">
+        <h4 class="text-white py-5">Instituição: {{ item.institution.name }}</h4>
+
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+          @for (product of item.products; track $index) {
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <img [src]="product.imageUrl" class="card-img-top" [alt]="product.name">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <p class="card-text">Preço: R${{ getTotalProduct(product).toFixed(2) }}</p>
+                  <p class="card-text">Quantidade: {{ product.unit ?? 1 }}</p>
+                  <button class="btn btn-danger btn-sm me-1" (click)="removeProduct(item.institution, product.id, true)">
+                    Remover tudo
+                  </button>
+                  <button class="btn btn-danger btn-sm ms-1" (click)="removeProduct(item.institution, product.id, false)">
+                    Remover uma unidade
+                  </button>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="my-4 d-flex justify-content-between align-items-center">
+          <strong class="text-white">
+            Total desta instituição: R${{ getInstitutionTotal(item.products).toFixed(2) }}
+          </strong>
+          <button class="btn btn-warning btn-sm" (click)="clearInstitution(item.institution)">
+            Esvaziar grupo
+          </button>
+        </div>
+      </div>
+    }
+
+    <div class="text-end mt-4">
+      <h4 class="text-white">Total geral do carrinho: R${{ totalCart().toFixed(2) }}</h4>
+      <div>
+        <button class="btn btn-outline-danger mt-2 me-1" (click)="clearAll()">Esvaziar Carrinho</button>
+        <button class="btn btn-outline-success mt-2 ms-1" (click)="goPay()">Ir ao pagamento</button>
+      </div>
+    </div>
+  </section>
+} @else {
+  <section class="container text-center pt-5 dvh-100">
+    <h1 class="text-white">Seu carrinho está vazio.</h1>
+  </section>
+}
+
+<app-footer></app-footer>

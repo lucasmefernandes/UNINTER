@@ -1,0 +1,17 @@
+<app-header></app-header>
+<section class="necessidades-box pt-5 pb-5 dvh-100">
+  <h2>Necessidades Atuais</h2>
+
+  <div class="products-grid">
+    @for (item of products(); track $index) {
+    <div class="product-card">
+      <img [src]="item.imageUrl" [alt]="item.name" />
+      <h3 class="product-name">{{ item.name }}</h3>
+      <p class="product-price">Preço: <strong>R$ {{ item.price.toFixed(2) }}</strong></p>
+      <button class="btn btn-success w-100" (click)="addToCart(item, institution())">Doar agora</button>
+    </div>
+    }
+  </div>
+</section>
+
+<app-footer></app-footer>

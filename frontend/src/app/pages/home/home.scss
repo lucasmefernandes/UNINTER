@@ -1,0 +1,38 @@
+.home-dark {
+  width: 100%;
+  color: #e0e0e0;
+}
+
+.container-box-dark {
+  border-radius: 12px;
+  box-shadow: 0 0 10px #ffffff1f;
+}
+
+.section-title {
+  font-size: 28px;
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  margin: 0 !important;
+}
+
+.section-text {
+  line-height: 1.8;
+  color: #ffffff;
+}
+
+ul li {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  position: relative;
+}
+
+.checkmark {
+  content: '✔';
+  color: #ffffff;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

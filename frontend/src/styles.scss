@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+}
+
+.bg-dark-purple {
+  background-color: #131128;
+}
+
+.bg-light-purple {
+  background-color: #292453;
+}
+
+.dvh-100 {
+  min-height: 100dvh;
+}

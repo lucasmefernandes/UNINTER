@@ -1,0 +1,18 @@
+<app-header></app-header>
+<section class="bg-dark-purple instituicoes pb-5 pt-5">
+  <h2 class="text-white">Instituições</h2>
+
+  <div class="instituicoes-grid">
+    @for (instituicao of institutions(); track $index) {
+      <div class="instituicao-card">
+        <img [src]="instituicao.imageUrl" [alt]="instituicao.name" />
+        <h3>{{ instituicao.name }}</h3>
+        <p>{{ instituicao.description }}</p>
+        <a [href]="'/necessity/' + instituicao.id">
+          <button class="btn btn-success w-100">Doar</button>
+        </a>
+      </div>
+    }
+  </div>
+</section>
+<app-footer></app-footer>
