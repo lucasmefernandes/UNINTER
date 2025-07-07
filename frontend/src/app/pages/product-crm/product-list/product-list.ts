@@ -17,7 +17,7 @@ export class ProductList {
     this.loading.set(true);
     const token = localStorage.getItem('token');
 
-    this.http.get('http://localhost:3000/api/users/product/my', {
+    this.http.get('https://uninter-mc8o.vercel.app/api/users/product/my', {
       headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
     }).subscribe({
       next: (data: any) => {
