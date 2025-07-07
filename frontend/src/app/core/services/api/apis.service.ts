@@ -9,7 +9,7 @@ import { Institutions, InstitutionsDataRef } from '../../models/institutions';
 })
 export class ApisService {
   private readonly baseUrl = `assets/jsons/produtcs.json`;
-  private readonly API_URL = 'https://uninter-mc8o.vercel.app/api/users';
+  private readonly API_URL = 'https://uninter-jtes.onrender.com/api/users';
 
   readonly products = signal<Product[]>([]);
   readonly institution = signal<InstitutionsDataRef>(

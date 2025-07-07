@@ -30,7 +30,7 @@ export class PaymentSuccess {
       );
 
       this.http
-        .post('https://uninter-mc8o.vercel.app/api/users/confirm', {
+        .post('https://uninter-jtes.onrender.com/api/users/confirm', {
           stripeSessionId: sessionId,
           cartProducts,
         })

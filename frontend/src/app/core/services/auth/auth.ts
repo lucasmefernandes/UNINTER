@@ -9,7 +9,7 @@ import { RegisterPayload } from '../../models/register';
   providedIn: 'root',
 })
 export class Auth {
-  private readonly API_URL = 'https://uninter-mc8o.vercel.app/api/users';
+  private readonly API_URL = 'https://uninter-jtes.onrender.com/api/users';
 
   readonly loading = signal(false);
   readonly error = signal<string | null>(null);

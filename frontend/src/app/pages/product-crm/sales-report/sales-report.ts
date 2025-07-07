@@ -17,7 +17,7 @@ private http = inject(HttpClient);
     this.loading.set(true);
     const token = localStorage.getItem('token');
 
-    this.http.get('https://uninter-mc8o.vercel.app/api/users/sales/my', {
+    this.http.get('https://uninter-jtes.onrender.com/api/users/sales/my', {
       headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
     }).subscribe({
       next: (data: any) => {
