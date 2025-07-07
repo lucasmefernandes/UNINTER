@@ -23,8 +23,8 @@ exports.createCheckoutSession = async (req, res) => {
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: `http://localhost:4200/payment/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `http://localhost:4200/payment/cancel`,
+      success_url: `https://uninter-five.vercel.app/payment/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `https://uninter-five.vercel.app/payment/cancel`,
     });
 
     res.json({ url: session.url });
